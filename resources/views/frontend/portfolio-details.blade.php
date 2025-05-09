@@ -2,199 +2,198 @@
 
 
 @section('content')
-
-<style>
-    @media (max-width: 768px) {
-        .desk-menu {
-            /* background-color: #000; */
-            display: none !important;
+    <style>
+        @media (max-width: 768px) {
+            .desk-menu {
+                /* background-color: #000; */
+                display: none !important;
+            }
         }
-    }
 
-    .mega-menu {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        position: fixed;
-        left: 0;
-        right: 0;
-        width: 100%;
-        background: white;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        z-index: 50;
-        padding: 2rem 0;
-        margin-top: 1px;
-    }
-
-    .has-mega-menu:hover .mega-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-
-    .nav-highlight::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: linear-gradient(90deg, #0d9488 0%, #2dd4bf 100%);
-        transition: width 0.3s ease;
-    }
-
-    .has-mega-menu:hover .nav-highlight::after {
-        width: 100%;
-    }
-
-    @media (max-width: 1023px) {
         .mega-menu {
-            display: none !important;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: fixed;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            z-index: 50;
+            padding: 2rem 0;
+            margin-top: 1px;
         }
-    }
-</style>
 
-<style>
-    @keyframes gradient {
-        0% {
-            background-position: 0% 50%;
-        }
-
-        50% {
-            background-position: 100% 50%;
-        }
-
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-
-    .gradient-bg {
-        background: linear-gradient(-45deg, #075985, #0d9488, #0369a1, #0d9488);
-        background-size: 400% 400%;
-        animation: gradient 15s ease infinite;
-    }
-
-    .faq-item {
-        border: 1px solid rgba(13, 148, 136, 0.1);
-    }
-
-    .faq-content {
-        display: grid;
-        grid-template-rows: 0fr;
-        transition: grid-template-rows 0.3s ease-out;
-    }
-
-    .faq-content>div {
-        overflow: hidden;
-    }
-
-    .faq-item.active .faq-content {
-        grid-template-rows: 1fr;
-    }
-
-    .rotate-icon {
-        transition: transform 0.3s ease;
-    }
-
-    .active .rotate-icon {
-        transform: rotate(45deg);
-    }
-
-    .hover-scale {
-        transition: transform 0.2s ease;
-    }
-
-    .hover-scale:hover {
-        transform: scale(1.01);
-    }
-</style>
-
-<style>
-    @keyframes float {
-
-        0%,
-        100% {
+        .has-mega-menu:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
             transform: translateY(0);
         }
 
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-
-    @keyframes float-delay {
-
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-15px);
-        }
-    }
-
-    @keyframes pulse-slow {
-
-        0%,
-        100% {
-            opacity: 0.2;
+        .nav-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #0d9488 0%, #2dd4bf 100%);
+            transition: width 0.3s ease;
         }
 
-        50% {
-            opacity: 0.3;
-        }
-    }
-
-    @keyframes pulse-slower {
-
-        0%,
-        100% {
-            opacity: 0.1;
+        .has-mega-menu:hover .nav-highlight::after {
+            width: 100%;
         }
 
-        50% {
-            opacity: 0.2;
+        @media (max-width: 1023px) {
+            .mega-menu {
+                display: none !important;
+            }
         }
-    }
+    </style>
 
-    .animate-float {
-        animation: float 6s ease-in-out infinite;
-    }
+    <style>
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
 
-    .animate-float-delay {
-        animation: float-delay 8s ease-in-out infinite;
-        animation-delay: 1s;
-    }
+            50% {
+                background-position: 100% 50%;
+            }
 
-    .animate-pulse-slow {
-        animation: pulse-slow 8s ease-in-out infinite;
-    }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
 
-    .animate-pulse-slower {
-        animation: pulse-slower 10s ease-in-out infinite;
-    }
+        .gradient-bg {
+            background: linear-gradient(-45deg, #075985, #0d9488, #0369a1, #0d9488);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
 
-    .particle {
-        animation: float 5s ease-in-out infinite;
-    }
+        .faq-item {
+            border: 1px solid rgba(13, 148, 136, 0.1);
+        }
 
-    .particle:nth-child(2) {
-        animation-delay: 1s;
-    }
+        .faq-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease-out;
+        }
 
-    .particle:nth-child(3) {
-        animation-delay: 2s;
-    }
+        .faq-content>div {
+            overflow: hidden;
+        }
 
-    .particle:nth-child(4) {
-        animation-delay: 3s;
-    }
-</style>
+        .faq-item.active .faq-content {
+            grid-template-rows: 1fr;
+        }
 
-<div class="h-20"></div>
+        .rotate-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .active .rotate-icon {
+            transform: rotate(45deg);
+        }
+
+        .hover-scale {
+            transition: transform 0.2s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.01);
+        }
+    </style>
+
+    <style>
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes float-delay {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes pulse-slow {
+
+            0%,
+            100% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes pulse-slower {
+
+            0%,
+            100% {
+                opacity: 0.1;
+            }
+
+            50% {
+                opacity: 0.2;
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-float-delay {
+            animation: float-delay 8s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-slow 8s ease-in-out infinite;
+        }
+
+        .animate-pulse-slower {
+            animation: pulse-slower 10s ease-in-out infinite;
+        }
+
+        .particle {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .particle:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(4) {
+            animation-delay: 3s;
+        }
+    </style>
+
+    <div class="h-20"></div>
 
     <!-- Hero Section -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-0 mt-3">
@@ -407,19 +406,19 @@
             </p>
         </div>
 
-        <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Service Card 1: SEO Optimization -->
             <div
-                class="service-card group relative bg-gray-800/30 rounded-2xl p-6 overflow-hidden border border-gray-500 transition-all duration-300 hover:border-teal-500">
+                class=" group relative bg-gray-800/30 rounded-2xl p-6 overflow-hidden border border-gray-500 transition-all duration-300 hover:border-teal-500">
                 <div
                     class="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-teal-300/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 </div>
 
                 <div class="relative z-10">
                     <div class="mb-4 flex justify-between items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="text-teal-400 group-hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" class="text-teal-400 group-hover:text-white transition-colors">
                             <path
                                 d="M16.466 7.5C17.399 8.248 18 9.246 18 10.25c0 1.657-1.343 3-3 3M16.466 7.5c-.847-1.923-2.649-3.5-4.466-3.5-3.314 0-6 2.686-6 6s2.686 6 6 6c1.817 0 3.62-1.577 4.466-3.5zm0 0H21v3h-4.466M13 7.5V3H8v18h5v-4.5" />
                         </svg>
@@ -433,7 +432,8 @@
                         healthcare services more accessible.
                     </p>
                     <div class="flex items-center justify-between">
-                        <a href="#" class="text-teal-300 hover:text-white text-sm font-medium group-hover:underline">
+                        <a href="#"
+                            class="text-teal-300 hover:text-white text-sm font-medium group-hover:underline">
                             Learn More
                         </a>
                         <div class="text-gray-500 text-xs group-hover:text-white transition-colors">
@@ -445,16 +445,16 @@
 
             <!-- Service Card 2: Social Media Marketing -->
             <div
-                class="service-card group relative bg-gray-800/30 rounded-2xl p-6 overflow-hidden border border-gray-500 transition-all duration-300 hover:border-teal-500">
+                class=" group relative bg-gray-800/30 rounded-2xl p-6 overflow-hidden border border-gray-500 transition-all duration-300 hover:border-teal-500">
                 <div
                     class="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-teal-300/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 </div>
 
                 <div class="relative z-10">
                     <div class="mb-4 flex justify-between items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="text-teal-400 group-hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" class="text-teal-400 group-hover:text-white transition-colors">
                             <path
                                 d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
                             </path>
@@ -469,7 +469,8 @@
                         through engaging social media content.
                     </p>
                     <div class="flex items-center justify-between">
-                        <a href="#" class="text-teal-300 hover:text-white text-sm font-medium group-hover:underline">
+                        <a href="#"
+                            class="text-teal-300 hover:text-white text-sm font-medium group-hover:underline">
                             Learn More
                         </a>
                         <div class="text-gray-500 text-xs group-hover:text-white transition-colors">
@@ -481,16 +482,16 @@
 
             <!-- Service Card 3: PPC Advertising -->
             <div
-                class="service-card group relative bg-gray-800/30 rounded-2xl p-6 overflow-hidden border border-gray-500 transition-all duration-300 hover:border-teal-500">
+                class=" group relative bg-gray-800/30 rounded-2xl p-6 overflow-hidden border border-gray-500 transition-all duration-300 hover:border-teal-500">
                 <div
                     class="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-teal-300/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 </div>
 
                 <div class="relative z-10">
                     <div class="mb-4 flex justify-between items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="text-teal-400 group-hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" class="text-teal-400 group-hover:text-white transition-colors">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                             <path d="M8 11l2 2 4-4"></path>
                         </svg>
@@ -504,7 +505,8 @@
                         healthcare services
                     </p>
                     <div class="flex items-center justify-between">
-                        <a href="#" class="text-teal-300 hover:text-white text-sm font-medium group-hover:underline">
+                        <a href="#"
+                            class="text-teal-300 hover:text-white text-sm font-medium group-hover:underline">
                             Learn More
                         </a>
                         <div class="text-gray-500 text-xs group-hover:text-white transition-colors">
@@ -516,16 +518,16 @@
 
             <!-- Service Card 4: Content Marketing -->
             <div
-                class="service-card group relative bg-gray-800/30 rounded-2xl p-6 overflow-hidden border border-gray-500 transition-all duration-300 hover:border-teal-500">
+                class=" group relative bg-gray-800/30 rounded-2xl p-6 overflow-hidden border border-gray-500 transition-all duration-300 hover:border-teal-500">
                 <div
                     class="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-teal-300/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 </div>
 
                 <div class="relative z-10">
                     <div class="mb-4 flex justify-between items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="text-teal-400 group-hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" class="text-teal-400 group-hover:text-white transition-colors">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                             <polyline points="14 2 14 8 20 8"></polyline>
                             <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -542,7 +544,8 @@
                         healthcare services.
                     </p>
                     <div class="flex items-center justify-between">
-                        <a href="#" class="text-teal-300 hover:text-white text-sm font-medium group-hover:underline">
+                        <a href="#"
+                            class="text-teal-300 hover:text-white text-sm font-medium group-hover:underline">
                             Learn More
                         </a>
                         <div class="text-gray-500 text-xs group-hover:text-white transition-colors">
@@ -554,16 +557,16 @@
 
             <!-- Service Card 5: Email Marketing -->
             <div
-                class="service-card group relative bg-gray-800/30 rounded-2xl p-6 overflow-hidden border border-gray-500 transition-all duration-300 hover:border-teal-500">
+                class=" group relative bg-gray-800/30 rounded-2xl p-6 overflow-hidden border border-gray-500 transition-all duration-300 hover:border-teal-500">
                 <div
                     class="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-teal-300/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 </div>
 
                 <div class="relative z-10">
                     <div class="mb-4 flex justify-between items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="text-teal-400 group-hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" class="text-teal-400 group-hover:text-white transition-colors">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
                             </path>
                             <polyline points="22,6 12,13 2,6"></polyline>
@@ -578,7 +581,8 @@
                         generation.
                     </p>
                     <div class="flex items-center justify-between">
-                        <a href="#" class="text-teal-300 hover:text-white text-sm font-medium group-hover:underline">
+                        <a href="#"
+                            class="text-teal-300 hover:text-white text-sm font-medium group-hover:underline">
                             Learn More
                         </a>
                         <div class="text-gray-500 text-xs group-hover:text-white transition-colors">
@@ -590,16 +594,16 @@
 
             <!-- Service Card 6: Analytics & Reporting -->
             <div
-                class="service-card group relative bg-gray-800/30 rounded-2xl p-6 overflow-hidden border border-gray-500 transition-all duration-300 hover:border-teal-500">
+                class=" group relative bg-gray-800/30 rounded-2xl p-6 overflow-hidden border border-gray-500 transition-all duration-300 hover:border-teal-500">
                 <div
                     class="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-teal-300/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 </div>
 
                 <div class="relative z-10">
                     <div class="mb-4 flex justify-between items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="text-teal-400 group-hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" class="text-teal-400 group-hover:text-white transition-colors">
                             <path d="M3 3v18h18"></path>
                             <path d="M18 17l-5-5-5 5V4"></path>
                             <path d="M18 8l-5 5 5 5"></path>
@@ -614,7 +618,8 @@
                         conversion.
                     </p>
                     <div class="flex items-center justify-between">
-                        <a href="#" class="text-teal-300 hover:text-white text-sm font-medium group-hover:underline">
+                        <a href="#"
+                            class="text-teal-300 hover:text-white text-sm font-medium group-hover:underline">
                             Learn More
                         </a>
                         <div class="text-gray-500 text-xs group-hover:text-white transition-colors">
@@ -832,8 +837,7 @@
         </div>
     </div>
     <script>
-        const faqs = [
-            {
+        const faqs = [{
                 question: "What industries do Branding Pioneers specialize in?",
                 answer: "We work across industries, including healthcare, e-commerce, B2B, lifestyle, and technology. Our strategies are customized to align with your industry’s unique audience and market dynamics.",
                 image: null
@@ -889,7 +893,8 @@
 
         faqs.forEach((faq, index) => {
             const faqItem = document.createElement('div');
-            faqItem.className = 'faq-item bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover-scale';
+            faqItem.className =
+                'faq-item bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover-scale';
 
             const content = `
                 <button class="w-full px-8 py-6 flex items-start justify-between focus:outline-none group" onclick="toggleFAQ(${index})">
@@ -901,10 +906,10 @@
                         <div class="px-8 pb-6">
                             <p class="text-gray-600 text-lg leading-relaxed mb-6">${faq.answer}</p>
                             ${faq.image ? `
-                                <div class="relative overflow-hidden rounded-lg  w-full ">
-                                    <img loading="lazy" src="${faq.image}" alt="FAQ illustration" class="w-full h-96 object-cover object-center">
-                                </div>
-                            ` : ''}
+                                                <div class="relative overflow-hidden rounded-lg  w-full ">
+                                                    <img loading="lazy" src="${faq.image}" alt="FAQ illustration" class="w-full h-96 object-cover object-center">
+                                                </div>
+                                            ` : ''}
                         </div>
                     </div>
                 </div>
@@ -1236,7 +1241,9 @@
                 });
 
                 // Mouse move handler
-                card.addEventListener('mousemove', handleMouseMove, { passive: true });
+                card.addEventListener('mousemove', handleMouseMove, {
+                    passive: true
+                });
 
                 // Mouse leave handler
                 card.addEventListener('mouseleave', () => {
@@ -1284,214 +1291,229 @@
             });
         </script>
     </div>
-
 @endsection
 
 @push('scripts')
+    <!-- scripts below -->
 
-<!-- scripts below -->
+    <script>
+        // Mobile menu handling
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-<script>
-    // Mobile menu handling
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-            mobileMenu.classList.add('hidden');
-        }
-    });
-
-    // Handle window resize
-    window.addEventListener('resize', () => {
-        if (window.innerWidth >= 1024) {
-            mobileMenu.classList.add('hidden');
-        }
-    });
-</script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const timeline = gsap.timeline({ defaults: { ease: 'power2.out' } });
-
-        timeline
-            .fromTo('#content-section',
-                { opacity: 0, y: 50 },
-                { opacity: 1, y: 0, duration: 0.8 }
-            )
-            .fromTo('#vector-section',
-                { opacity: 0, scale: 0.8 },
-                { opacity: 1, scale: 1, duration: 0.6 },
-                "-=0.4"
-            );
-    });
-</script>
-
-<script>
-    // GSAP ScrollTrigger Animation
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Staggered Services Cards Animation
-    gsap.from('.service-card', {
-        scrollTrigger: {
-            trigger: '#services-grid',
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-        },
-        y: 50,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.6,
-        ease: 'power2.out'
-    });
-
-    // Hover Interactions
-    document.querySelectorAll('.service-card').forEach(card => {
-        const icon = card.querySelector('svg');
-        const tag = card.querySelector('span');
-        const learnMore = card.querySelector('a');
-
-        card.addEventListener('mouseenter', () => {
-            gsap.to(icon, {
-                rotation: 360,
-                scale: 1.1,
-                duration: 0.5,
-                ease: 'elastic.out(1, 0.3)'
-            });
-
-            gsap.fromTo(tag,
-                { opacity: 0, y: 20 },
-                { opacity: 1, y: 0, duration: 0.3 }
-            );
-
-            gsap.to(learnMore, {
-                x: 5,
-                duration: 0.3,
-                ease: 'power1.inOut'
-            });
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
 
-        card.addEventListener('mouseleave', () => {
-            gsap.to(icon, {
-                rotation: 0,
-                scale: 1,
-                duration: 0.5,
-                ease: 'elastic.out(1, 0.3)'
-            });
-
-            gsap.to(tag, {
-                opacity: 0,
-                y: 20,
-                duration: 0.3
-            });
-
-            gsap.to(learnMore, {
-                x: 0,
-                duration: 0.3,
-                ease: 'power1.inOut'
-            });
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
         });
-    });
-</script>
 
-<script>
-    // First, define the Lite YouTube Embed component
-    class LiteYTEmbed extends HTMLElement {
-        constructor() {
-            super();
-            this.isIframeLoaded = false;
-        }
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
 
-        connectedCallback() {
-            this.videoId = this.getAttribute('videoid');
-
-            // Set preview image
-            const playBtn = document.createElement('button');
-            playBtn.className = 'lty-playbtn';
-            this.appendChild(playBtn);
-
-            // Add click handler to the play button
-            playBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.handleVideoClick();
-            });
-
-            // Make entire element clickable
-            this.addEventListener('click', (e) => {
-                if (e.target !== playBtn) {
-                    this.handleVideoClick();
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const timeline = gsap.timeline({
+                defaults: {
+                    ease: 'power2.out'
                 }
             });
-        }
 
-        handleVideoClick() {
-            // Stop swiper autoplay when video is clicked
-            if (window.swiper) {
-                window.swiper.autoplay.stop();
-                window.swiper.params.autoplay.enabled = false;
-            }
+            timeline
+                .fromTo('#content-section', {
+                    opacity: 0,
+                    y: 50
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8
+                })
+                .fromTo('#vector-section', {
+                        opacity: 0,
+                        scale: 0.8
+                    }, {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.6
+                    },
+                    "-=0.4"
+                );
+        });
+    </script>
 
-            // Show video in modal instead of embedding directly
-            const videoId = this.getAttribute('videoid');
-            showVideoInModal(videoId);
-        }
-    }
-    customElements.define('lite-youtube', LiteYTEmbed);
+    <script>
+        // GSAP ScrollTrigger Animation
+        gsap.registerPlugin(ScrollTrigger);
 
-    // Add message listener for video events
-    window.addEventListener('message', (e) => {
-        try {
-            const data = JSON.parse(e.data);
-            if (data.event === 'onStateChange' && data.info === 0) { // Video ended
-                if (window.swiper) {
-                    // Re-enable and start autoplay when video ends
-                    window.swiper.params.autoplay.enabled = true;
-                    window.swiper.autoplay.start();
-                }
-            }
-        } catch (err) {
-            // Handle parsing error
-        }
-    });
-
-    // Initialize Swiper
-    window.swiper = new Swiper('.video-testimonials', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            640: {
-                slidesPerView: 2,
+        // Staggered Services Cards Animation
+        gsap.from('.service-card', {
+            scrollTrigger: {
+                trigger: '#services-grid',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
             },
-            1024: {
-                slidesPerView: 3,
-            }
-        },
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        }
-    });
+            y: 50,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 0.6,
+            ease: 'power2.out'
+        });
 
-    // Create modal element
-    const modal = document.createElement('div');
-    modal.id = 'video-modal';
-    modal.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 hidden';
-    modal.innerHTML = `
+        // Hover Interactions
+        document.querySelectorAll('.service-card').forEach(card => {
+            const icon = card.querySelector('svg');
+            const tag = card.querySelector('span');
+            const learnMore = card.querySelector('a');
+
+            card.addEventListener('mouseenter', () => {
+                gsap.to(icon, {
+                    rotation: 360,
+                    scale: 1.1,
+                    duration: 0.5,
+                    ease: 'elastic.out(1, 0.3)'
+                });
+
+                gsap.fromTo(tag, {
+                    opacity: 0,
+                    y: 20
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.3
+                });
+
+                gsap.to(learnMore, {
+                    x: 5,
+                    duration: 0.3,
+                    ease: 'power1.inOut'
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(icon, {
+                    rotation: 0,
+                    scale: 1,
+                    duration: 0.5,
+                    ease: 'elastic.out(1, 0.3)'
+                });
+
+                gsap.to(tag, {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.3
+                });
+
+                gsap.to(learnMore, {
+                    x: 0,
+                    duration: 0.3,
+                    ease: 'power1.inOut'
+                });
+            });
+        });
+    </script>
+
+    <script>
+        // First, define the Lite YouTube Embed component
+        class LiteYTEmbed extends HTMLElement {
+            constructor() {
+                super();
+                this.isIframeLoaded = false;
+            }
+
+            connectedCallback() {
+                this.videoId = this.getAttribute('videoid');
+
+                // Set preview image
+                const playBtn = document.createElement('button');
+                playBtn.className = 'lty-playbtn';
+                this.appendChild(playBtn);
+
+                // Add click handler to the play button
+                playBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.handleVideoClick();
+                });
+
+                // Make entire element clickable
+                this.addEventListener('click', (e) => {
+                    if (e.target !== playBtn) {
+                        this.handleVideoClick();
+                    }
+                });
+            }
+
+            handleVideoClick() {
+                // Stop swiper autoplay when video is clicked
+                if (window.swiper) {
+                    window.swiper.autoplay.stop();
+                    window.swiper.params.autoplay.enabled = false;
+                }
+
+                // Show video in modal instead of embedding directly
+                const videoId = this.getAttribute('videoid');
+                showVideoInModal(videoId);
+            }
+        }
+        customElements.define('lite-youtube', LiteYTEmbed);
+
+        // Add message listener for video events
+        window.addEventListener('message', (e) => {
+            try {
+                const data = JSON.parse(e.data);
+                if (data.event === 'onStateChange' && data.info === 0) { // Video ended
+                    if (window.swiper) {
+                        // Re-enable and start autoplay when video ends
+                        window.swiper.params.autoplay.enabled = true;
+                        window.swiper.autoplay.start();
+                    }
+                }
+            } catch (err) {
+                // Handle parsing error
+            }
+        });
+
+        // Initialize Swiper
+        window.swiper = new Swiper('.video-testimonials', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            }
+        });
+
+        // Create modal element
+        const modal = document.createElement('div');
+        modal.id = 'video-modal';
+        modal.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 hidden';
+        modal.innerHTML = `
         <div class="relative w-full max-w-4xl mx-4">
             <button id="close-modal" class="absolute -top-12 right-0 text-white hover:text-teal-300 focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1503,25 +1525,25 @@
             </div>
         </div>
     `;
-    document.body.appendChild(modal);
+        document.body.appendChild(modal);
 
-    // Close modal when clicking the close button
-    document.getElementById('close-modal').addEventListener('click', function () {
-        closeVideoModal();
-    });
-
-    // Close modal when clicking outside the video
-    modal.addEventListener('click', function (e) {
-        if (e.target === modal) {
+        // Close modal when clicking the close button
+        document.getElementById('close-modal').addEventListener('click', function() {
             closeVideoModal();
-        }
-    });
+        });
 
-    function showVideoInModal(videoId) {
-        const container = document.getElementById('modal-video-container');
+        // Close modal when clicking outside the video
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeVideoModal();
+            }
+        });
 
-        // Create YouTube iframe
-        container.innerHTML = `
+        function showVideoInModal(videoId) {
+            const container = document.getElementById('modal-video-container');
+
+            // Create YouTube iframe
+            container.innerHTML = `
             <iframe width="100%" height="100%"
                 src="https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1"
                 frameborder="0"
@@ -1531,43 +1553,42 @@
             </iframe>
         `;
 
-        modal.classList.remove('hidden');
+            modal.classList.remove('hidden');
 
-        // Listen for video end in modal
-        const iframe = container.querySelector('iframe');
-        iframe.addEventListener('load', () => {
-            iframe.contentWindow.postMessage(JSON.stringify({
-                event: 'listening',
-                id: videoId
-            }), '*');
-        });
-    }
-
-    function closeVideoModal() {
-        modal.classList.add('hidden');
-        const container = document.getElementById('modal-video-container');
-        container.innerHTML = '';
-
-        // Restart swiper autoplay when modal closes
-        if (window.swiper) {
-            window.swiper.params.autoplay.enabled = true;
-            window.swiper.autoplay.start();
+            // Listen for video end in modal
+            const iframe = container.querySelector('iframe');
+            iframe.addEventListener('load', () => {
+                iframe.contentWindow.postMessage(JSON.stringify({
+                    event: 'listening',
+                    id: videoId
+                }), '*');
+            });
         }
-    }
 
-    // Handle all video card clicks as fallback
-    document.querySelectorAll('.swiper-slide').forEach(slide => {
-        slide.addEventListener('click', function (e) {
-            // Don't trigger if clicking on navigation or other elements
-            if (e.target.closest('a') || e.target.closest('button')) return;
+        function closeVideoModal() {
+            modal.classList.add('hidden');
+            const container = document.getElementById('modal-video-container');
+            container.innerHTML = '';
 
-            const youtubeElement = slide.querySelector('lite-youtube');
-            if (youtubeElement) {
-                const videoId = youtubeElement.getAttribute('videoid');
-                showVideoInModal(videoId);
+            // Restart swiper autoplay when modal closes
+            if (window.swiper) {
+                window.swiper.params.autoplay.enabled = true;
+                window.swiper.autoplay.start();
             }
-        });
-    });
-</script>
+        }
 
+        // Handle all video card clicks as fallback
+        document.querySelectorAll('.swiper-slide').forEach(slide => {
+            slide.addEventListener('click', function(e) {
+                // Don't trigger if clicking on navigation or other elements
+                if (e.target.closest('a') || e.target.closest('button')) return;
+
+                const youtubeElement = slide.querySelector('lite-youtube');
+                if (youtubeElement) {
+                    const videoId = youtubeElement.getAttribute('videoid');
+                    showVideoInModal(videoId);
+                }
+            });
+        });
+    </script>
 @endpush
