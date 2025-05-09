@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Testimonials</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.3.2/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-pHj1...YOUR_INTEGRITY_HASH_HERE..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- YouTube Lite Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.5.0/lite-youtube.js" type="module"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.3.2/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        lite-youtube {
+            background-color: #000;
+            position: relative;
+            display: block;
+            contain: content;
+            background-position: center center;
+            background-size: cover;
+            cursor: pointer;
+            max-width: 100%;
+        }
+
+        lite-youtube::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADGCAYAAAAT+OqFAAAAdklEQVQoz42QQQ7AIAgEF/T/D+kbq/RWAlnQyyazA4aoAB4FsBSA/bFjuF1EOL7VbrIrBuusmrt4ZZORfb6ehbWdnRHEIiITaEUKa5EJqUakRSaEYBJSCY2dEstQY7AuxahwXFrvZmWl2rh4JZ07z9dLtesfNj5q0FU3A5ObbwAAAABJRU5ErkJggg==);
+            background-position: top;
+            background-repeat: repeat-x;
+            height: 60px;
+            padding-bottom: 50px;
+            width: 100%;
+            transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+        }
+
+        lite-youtube::after {
+            content: "";
+            display: block;
+            padding-bottom: calc(100% * (9/16));
+        }
+
+        lite-youtube>iframe {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 0;
+        }
+
+        lite-youtube>.lty-playbtn {
+            width: 70px;
+            height: 46px;
+            background-color: #212121;
+            z-index: 1;
+            opacity: 0.8;
+            border-radius: 14%;
+            transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+            border: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+
+        lite-youtube:hover>.lty-playbtn {
+            background-color: #f00;
+            opacity: 1;
+        }
+
+        lite-youtube>.lty-playbtn:before {
+            content: '';
+            border-style: solid;
+            border-width: 11px 0 11px 19px;
+            border-color: transparent transparent transparent #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="main-wrapper top-0 fixed z-50 w-full">
+        <nav class="navbar">
+            <div class="brand-and-icon">
+                <a href="/" class="navbar-brand"><img src="https://brandingpioneers.com/images/logo.png" alt=""
+                        class="max-w-36"></a>
+                <button type="button" class="navbar-toggler">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="navbar-collapse">
+                <ul class="navbar-nav">
+                    <li>
+                        <a href="#">home</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="menu-link">
+                            Digital Services
+                            <span class="drop-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </a>
+                        <div class="sub-menu transform transition-transform duration-300 ease-in-out">
+                            <div class="sub-menu-item">
+                                <h4>SEO Services</h4>
+                                <ul>
+                                    <li><a href="#">SEO</a></li>
+                                    <li><a href="#">Ads and Lead Generation</a></li>
+                                    <li><a href="#">Local SEO</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="sub-menu-item">
+                                <h4>Brand Building</h4>
+                                <ul>
+                                    <li><a href="#">Social Media Marketing</a></li>
+                                    <li><a href="#">Video Marketing</a></li>
+                                    <li><a href="#">Influencers</a></li>
+                                    <li><a href="#">Content Marketing</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="sub-menu-item">
+                                <h2>Transform Your Digital Presence</h2>
+                                <button type="button" class="btn">Learn More</button>
+                            </div>
+
+                            <div class="sub-menu-item">
+                                <img src="https://images.unsplash.com/photo-1504221507732-5246c045949b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    alt="Digital Services">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="#" class="menu-link">
+                            Business Solutions
+                            <span class="drop-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </a>
+                        <div class="sub-menu transform transition-transform duration-300 ease-in-out">
+                            <div class="sub-menu-item">
+                                <h4>Sales Automation</h4>
+                                <ul>
+                                    <li><a href="#">CRM</a></li>
+                                    <li><a href="#">Leadmate</a></li>
+                                    <li><a href="#">Call Tracking</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="sub-menu-item">
+                                <h4>Online Reputation</h4>
+                                <ul>
+                                    <li><a href="#">Google Review</a></li>
+                                    <li><a href="#">Quora Review</a></li>
+                                    <li><a href="#">Testimonials Video Creation</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="sub-menu-item">
+                                <h2>Automate Your Business Growth</h2>
+                                <button type="button" class="btn">Explore Solutions</button>
+                            </div>
+
+                            <div class="sub-menu-item">
+                                <img src="https://images.unsplash.com/photo-1513346940221-6f673d962e97?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    alt="Business Solutions">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="#" class="menu-link">
+                            Industries
+                            <span class="drop-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </a>
+                        <div class="sub-menu transform transition-transform duration-300 ease-in-out">
+                            <div class="sub-menu-item">
+                                <h4>Primary Industries</h4>
+                                <ul>
+                                    <li><a href="#">Financial Services</a></li>
+                                    <li><a href="#">Real Estate</a></li>
+                                    <li><a href="#">Non-profit Organization</a></li>
+                                    <li><a href="#">Automotive</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="sub-menu-item">
+                                <h4>Services</h4>
+                                <ul>
+                                    <li><a href="#">Business to Business</a></li>
+                                    <li><a href="#">Business to Client</a></li>
+                                    <li><a href="#">SaaS</a></li>
+                                    <li><a href="#">E-Commerce</a></li>
+                                    <li><a href="#">Hospitality</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="sub-menu-item">
+                                <h2>Industry-Specific Solutions</h2>
+                                <button type="button" class="btn">Find Your Industry</button>
+                            </div>
+
+                            <div class="sub-menu-item">
+                                <img src="https://images.unsplash.com/photo-1496504175726-c7b4523c7e81?q=80&w=3017&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    alt="Industries">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="#" class="menu-link">
+                            Patient Engagement
+                            <span class="drop-icon">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </a>
+                        <div class="sub-menu transform transition-transform duration-300 ease-in-out">
+                            <div class="sub-menu-item">
+                                <h4>Communication Channels</h4>
+                                <ul>
+                                    <li><a href="#">Whatsapp Marketing</a></li>
+                                    <li><a href="#">Email Marketing</a></li>
+                                    <li><a href="#">SMS Marketing</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="sub-menu-item">
+                                <h4>Marketing Materials</h4>
+                                <ul>
+                                    <li><a href="#">Newsletter Designing</a></li>
+                                    <li><a href="#">Newsletter Printing</a></li>
+                                    <li><a href="#">Native Advertising</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="sub-menu-item">
+                                <h2>Engage Your Patients Better</h2>
+                                <button type="button" class="btn">Start Engaging</button>
+                            </div>
+
+                            <div class="sub-menu-item">
+                                <img src="https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    alt="Patient Engagement">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="/contact-us.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md-px-0  mt-24">
+        <div class="relative mb-16 overflow-hidden rounded-3xl bg-gray-900 p-8 lg:p-12">
+            <div class="absolute inset-0 opacity-20">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,#4fd1c5_0%,transparent_50%)]">
+                </div>
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,#2dd4bf_0%,transparent_50%)]">
+                </div>
+            </div>
+            <div class="relative">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4">Our <br>
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-teal-200">Testimonials</span>
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl max-w-2xl" id="typingText">Your vision, our expertise -
+                    together we'll transform the digital landscape.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="max-w-7xl mx-auto px-4 py-16">
+        <!-- Header Section -->
+        <div class="px-8 mb-16 opacity-0" id="header">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Client Success Story</h2>
+            <p class="text-lg text-gray-600 max-w-3xl ">
+                Over the years, we've had the privilege of partnering with diverse brands, companies, and sectors,
+                delivering innovative digital solutions that drive growth and success.
+            </p>
+        </div>
+
+        <!-- Statistics Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16" id="stats-container">
+            <div class="text-center opacity-0 stat-item">
+                <div class="text-3xl font-bold text-gray-800 mb-2" data-target="500">0</div>
+                <div class="text-sm text-gray-600">Clients Served</div>
+            </div>
+            <div class="text-center opacity-0 stat-item">
+                <div class="text-3xl font-bold text-gray-800 mb-2" data-target="1000">0</div>
+                <div class="text-sm text-gray-600">Websites Developed</div>
+            </div>
+            <div class="text-center opacity-0 stat-item">
+                <div class="text-3xl font-bold text-gray-800 mb-2" data-target="50">0</div>
+                <div class="text-sm text-gray-600">Services Offered</div>
+            </div>
+            <div class="text-center opacity-0 stat-item">
+                <div class="text-3xl font-bold text-gray-800 mb-2" data-target="95">0</div>
+                <div class="text-sm text-gray-600">Client Satisfaction Rate</div>
+            </div>
+        </div>
+
+        <!-- Tech Companies -->
+        <div class="mb-16 client-section opacity-0">
+            <h3 class="text-xl font-semibold mb-8 text-gray-700">Technology Partners</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-0 border border-gray-100">
+                <div class="flex items-center justify-center p-6 border border-gray-100 logo-item">
+                    <img src="https://cdn.brandfetch.io/idawOgYOsG/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                        alt="Tech Logo 1" class="w-24 h-24 object-contain">
+                </div>
+                <div class="flex items-center justify-center p-6 border border-gray-100 logo-item">
+                    <img src="https://cdn.brandfetch.io/idawOgYOsG/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                        alt="Tech Logo 2" class="w-24 h-24 object-contain">
+                </div>
+                <div class="flex items-center justify-center p-6 border border-gray-100 logo-item">
+                    <img src="https://cdn.brandfetch.io/idawOgYOsG/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                        alt="Tech Logo 3" class="w-24 h-24 object-contain">
+                </div>
+                <div class="flex items-center justify-center p-6 border border-gray-100 logo-item">
+                    <img src="https://cdn.brandfetch.io/idawOgYOsG/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                        alt="Tech Logo 4" class="w-24 h-24 object-contain">
+                </div>
+            </div>
+        </div>
+
+        <!-- Finance Companies -->
+        <div class="mb-16 client-section opacity-0">
+            <h3 class="text-xl font-semibold mb-8 text-gray-700">Financial Institutions</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-0 border border-gray-100">
+                <div class="flex items-center justify-center p-6 border border-gray-100 logo-item">
+                    <img src="https://cdn.brandfetch.io/idnrCPuv87/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                        alt="Finance Logo 1" class="w-24 h-24 object-contain">
+                </div>
+                <div class="flex items-center justify-center p-6 border border-gray-100 logo-item">
+                    <img src="https://cdn.brandfetch.io/idnrCPuv87/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                        alt="Finance Logo 2" class="w-24 h-24 object-contain">
+                </div>
+                <div class="flex items-center justify-center p-6 border border-gray-100 logo-item">
+                    <img src="https://cdn.brandfetch.io/idnrCPuv87/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                        alt="Finance Logo 3" class="w-24 h-24 object-contain">
+                </div>
+                <div class="flex items-center justify-center p-6 border border-gray-100 logo-item">
+                    <img src="https://cdn.brandfetch.io/idnrCPuv87/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                        alt="Finance Logo 4" class="w-24 h-24 object-contain">
+                </div>
+            </div>
+        </div>
+
+        <!-- Healthcare Companies -->
+        <div class="client-section opacity-0">
+            <h3 class="text-xl font-semibold mb-8 text-gray-700">Healthcare Partners</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-0 border border-gray-100">
+                <div class="flex items-center justify-center p-6 border border-gray-100 logo-item">
+                    <img src="https://cdn.brandfetch.io/id5dnLW98Y/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                        alt="Healthcare Logo 1" class="w-24 h-24 object-contain">
+                </div>
+                <div class="flex items-center justify-center p-6 border border-gray-100 logo-item">
+                    <img src="https://cdn.brandfetch.io/id5dnLW98Y/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                        alt="Healthcare Logo 2" class="w-24 h-24 object-contain">
+                </div>
+                <div class="flex items-center justify-center p-6 border border-gray-100 logo-item">
+                    <img src="https://cdn.brandfetch.io/id5dnLW98Y/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                        alt="Healthcare Logo 3" class="w-24 h-24 object-contain">
+                </div>
+                <div class="flex items-center justify-center p-6 border border-gray-100 logo-item">
+                    <img src="https://cdn.brandfetch.io/id5dnLW98Y/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B"
+                        alt="Healthcare Logo 4" class="w-24 h-24 object-contain">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story-driven Testimonial Section -->
+    <section class="relative min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-16 overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] opacity-5"></div>
+
+        <!-- Main Container -->
+        <div class="max-w-7xl mx-auto px-4">
+            <!-- Hero Section -->
+            <div class="relative mb-24">
+                <!-- Image Recommendation: An abstract collage showing digital transformation elements 
+                 Size: 1920x600px, Style: Modern, abstract with teal accents -->
+                <div class="h-[300px] md:h-[400px] rounded-3xl overflow-hidden mb-8 ">
+                    <img src="https://images.unsplash.com/photo-1481966115753-963394378f23?q=80&w=3013&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Digital Transformation Journey" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-r from-teal-900/80 to-transparent flex items-center">
+                        <div class="p-8 md:p-12 max-w-xl">
+                            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 slide-in">Their Journey to Digital
+                                Excellence</h2>
+                            <p class="text-teal-50 text-lg fade-in">A story of transformation, innovation, and
+                                remarkable
+                                results</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Story Content -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <!-- Left Column: Story & Timeline -->
+                <div class="space-y-12">
+                    <!-- Company Introduction -->
+                    <div
+                        class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-teal-100 story-card">
+                        <div class="flex items-center gap-6 mb-6">
+                            <!-- Image Recommendation: Company logo/team photo, Size: 400x400px -->
+                            <div class="relative w-24 h-24 rounded-2xl overflow-hidden shadow-xl">
+                                <img src="https://cdn.brandfetch.io/idy-5oCG6y/w/1093/h/1093/theme/dark/icon.png?c=1bfwsmEH20zzEfSNTed"
+                                    alt="TechVision Team" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-teal-800">TechVision Solutions</h3>
+                                <p class="text-slate-600">Digital Innovation Partner</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            When TechVision approached us, they were at a crucial turning point. With 10 years of
+                            success in
+                            traditional operations, they were ready to embrace the digital future.
+                        </p>
+                        <!-- Image Recommendation: Before/After comparison graphic, Size: 800x300px -->
+                        <div class="relative h-40 rounded-xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1535083252457-6080fe29be45?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Digital Transformation" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <!-- Challenge & Solution -->
+                    <div class="relative">
+                        <div
+                            class="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-teal-200 via-teal-400 to-teal-600">
+                        </div>
+
+                        <!-- Challenge -->
+                        <div class="relative pl-8 mb-12 story-card">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 rounded-full bg-white shadow-lg border-2 border-teal-400 flex items-center justify-center">
+                                <span class="block w-2 h-2 rounded-full bg-teal-500"></span>
+                            </div>
+                            <div class="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+                                <h4 class="text-xl font-semibold text-teal-800 mb-4">The Challenge</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                                    <!-- Image Recommendation: 3 challenge icons, Size: 120x120px each -->
+                                    <div class="flex flex-col items-center text-center p-4 rounded-lg bg-slate-50">
+                                        <img src="https://img.icons8.com/?size=100&id=wWh3KNXLFm0y&format=png&color=000000"
+                                            alt="Legacy Systems" class="w-12 h-12 mb-2">
+                                        <span class="text-sm text-slate-600">Legacy Systems</span>
+                                    </div>
+                                    <div class="flex flex-col items-center text-center p-4 rounded-lg bg-slate-50">
+                                        <img src="https://img.icons8.com/?size=100&id=wWh3KNXLFm0y&format=png&color=000000"
+                                            alt="Data Silos" class="w-12 h-12 mb-2">
+                                        <span class="text-sm text-slate-600">Data Silos</span>
+                                    </div>
+                                    <div class="flex flex-col items-center text-center p-4 rounded-lg bg-slate-50">
+                                        <img src="https://img.icons8.com/?size=100&id=wWh3KNXLFm0y&format=png&color=000000"
+                                            alt="Manual Processes" class="w-12 h-12 mb-2">
+                                        <span class="text-sm text-slate-600">Manual Processes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Solution -->
+                        <div class="relative pl-8 story-card">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 rounded-full bg-white shadow-lg border-2 border-teal-400 flex items-center justify-center">
+                                <span class="block w-2 h-2 rounded-full bg-teal-500"></span>
+                            </div>
+                            <div class="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+                                <h4 class="text-xl font-semibold text-teal-800 mb-4">The Solution</h4>
+                                <!-- Image Recommendation: Solution journey graphic, Size: 800x300px -->
+                                <div class="relative h-48 rounded-xl overflow-hidden mb-6">
+                                    <img src="https://images.unsplash.com/photo-1535083252457-6080fe29be45?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                        alt="Solution Journey" class="w-full h-full object-cover">
+                                </div>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                    <div class="text-center">
+                                        <div
+                                            class="w-16 h-16 bg-teal-500 rounded-xl mx-auto flex items-center justify-center mb-2">
+                                            <span class="text-2xl font-bold text-white">1</span>
+                                        </div>
+                                        <span class="text-sm text-slate-600">Analysis</span>
+                                    </div>
+                                    <div class="text-center">
+                                        <div
+                                            class="w-16 h-16 bg-teal-500 rounded-xl mx-auto flex items-center justify-center mb-2">
+                                            <span class="text-2xl font-bold text-white">2</span>
+                                        </div>
+                                        <span class="text-sm text-slate-600">Strategy</span>
+                                    </div>
+                                    <div class="text-center">
+                                        <div
+                                            class="w-16 h-16 bg-teal-500 rounded-xl mx-auto flex items-center justify-center mb-2">
+                                            <span class="text-2xl font-bold text-white">3</span>
+                                        </div>
+                                        <span class="text-sm text-slate-600">Implementation</span>
+                                    </div>
+                                    <div class="text-center">
+                                        <div
+                                            class="w-16 h-16 bg-teal-500 rounded-xl mx-auto flex items-center justify-center mb-2">
+                                            <span class="text-2xl font-bold text-white">4</span>
+                                        </div>
+                                        <span class="text-sm text-slate-600">Optimization</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Results & Video -->
+                <div class="space-y-12">
+                    <!-- Results Showcase -->
+                    <div
+                        class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-teal-100 story-card">
+                        <h4 class="text-2xl font-semibold text-teal-800 mb-6">Transformative Results</h4>
+                        <!-- Image Recommendation: Results infographic, Size: 800x400px -->
+                        <div class="relative h-64 rounded-xl overflow-hidden mb-8">
+                            <img src="https://images.unsplash.com/photo-1535083252457-6080fe29be45?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Results Infographic" class="w-full h-full object-cover">
+                        </div>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center p-6 rounded-xl bg-gradient-to-br from-teal-500 to-teal-600">
+                                <span class="block text-3xl font-bold text-white mb-2">40%</span>
+                                <span class="text-teal-50">Efficiency Increase</span>
+                            </div>
+                            <div class="text-center p-6 rounded-xl bg-gradient-to-br from-teal-500 to-teal-600">
+                                <span class="block text-3xl font-bold text-white mb-2">2.5x</span>
+                                <span class="text-teal-50">ROI Achieved</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Testimonial -->
+                    <div
+                        class="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-teal-100 story-card">
+                        <h4 class="text-xl font-semibold text-teal-800 mb-4">Hear Their Story</h4>
+                        <div class="relative rounded-xl overflow-hidden aspect-[9/16]">
+                            <lite-youtube videoid="lCrc8f7KMD8" class="w-full h-full"
+                                style="background-image: url('https://i.ytimg.com/vi/lCrc8f7KMD8/maxresdefault.jpg');">
+                            </lite-youtube>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="/scripts/script.js">
+    </script>
+
+    <script>
+
+        const text = document.getElementById('typingText');
+        const originalText = text.textContent;
+        text.textContent = '';
+
+        let charIndex = 0;
+        function typeText() {
+            if (charIndex < originalText.length) {
+                text.textContent += originalText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeText, 50);
+            }
+        }
+
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    typeText();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(text);
+
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+
+        gsap.from(".rounded-3xl", {
+            duration: 1,
+            y: 60,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".rounded-3xl",
+                start: "top bottom",
+                toggleActions: "play none none reverse"
+            }
+        });
+    </script>
+
+    <script>
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Header Animation
+        gsap.to("#header", {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: "#header",
+                start: "top 80%",
+            }
+        });
+
+        // Stats Counter Animation
+        const statsSection = document.querySelector("#stats-container");
+        const statItems = document.querySelectorAll(".stat-item");
+
+        // Animate stats container
+        gsap.to(statItems, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: statsSection,
+                start: "top 80%",
+            },
+            onComplete: animateNumbers
+        });
+
+        function animateNumbers() {
+            document.querySelectorAll('[data-target]').forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+
+                gsap.to(counter, {
+                    innerHTML: target,
+                    duration: 2,
+                    snap: { innerHTML: 1 },
+                    ease: "power2.out"
+                });
+            });
+        }
+
+        // Client Sections Animation
+        document.querySelectorAll('.client-section').forEach((section, index) => {
+            const logos = section.querySelectorAll('.logo-item');
+
+            gsap.set(logos, { opacity: 0, y: 20 });
+
+            // Animate section
+            gsap.to(section, {
+                opacity: 1,
+                duration: 0.8,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                },
+                onComplete: () => {
+                    // Animate logos within section
+                    gsap.to(logos, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.5,
+                        stagger: 0.1,
+                        ease: "power2.out"
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate story cards on scroll
+        gsap.utils.toArray('.story-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                },
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: 'power2.out'
+            });
+        });
+
+        // Header animations
+        gsap.from('.story-header', {
+            scrollTrigger: {
+                trigger: '.story-header',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            },
+            opacity: 0,
+            scale: 0.95,
+            duration: 1,
+            ease: 'power2.out'
+        });
+    </script>
+</body>
+
+
+
+</html>
